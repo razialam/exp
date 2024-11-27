@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/hydra-synth@1.0.0"></script>
+  <title>Hydra Embed</title>
+</head>
+<body>
+  <script>
+    const hydra = new Hydra();
+    shape(() => Math.sin(time)+1*2)
+      .rotate(() => Math.PI * mouse.x / 180)
+      .repeatX(3)
+      .repeatY(() => Math.sin(time) * 5)
+      .scale(() => Math.PI / 4)
+      .blend(src(o0).color(1, 0, 0))
+      .modulate(osc(20, 0, 0.4))
+      .kaleid(2)
+      .out(o0);
+    render(o0);
+  </script>
+</body>
+</html>
